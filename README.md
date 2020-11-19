@@ -2,6 +2,10 @@
 
 # 使用说明
 
+## 下载代码
+
+`https://github.com/huanghaozi/JensenTValueCNFunds/archive/main.zip`
+
 ## 安装Python或Conda
 
 并在安装时将其加入PATH环境变量，MiniConda清华源下载地址：
