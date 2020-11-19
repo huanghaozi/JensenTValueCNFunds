@@ -16,7 +16,7 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 ## 解压
 	
-完整解压此zip，记录解压路径
+完整解压，记录解压路径
 	
 ## 安装依赖环境
 	

@@ -2,7 +2,7 @@
 	https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py38_4.8.3-Windows-x86_64.exe
 2. 换源：运行命令：
 	pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-3. 完整解压此zip，记录解压路径
+3. 完整解压，记录解压路径
 4. 安装依赖环境：运行命令：
 	cd /d 路径		（将"路径"换为解压路径）
 	pip install -r requirements.txt
