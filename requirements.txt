@@ -1,0 +1,4 @@
+statsmodels
+akshare
+pandas
+numpy
