@@ -3,6 +3,7 @@ import akshare as ak
 import pandas as pd
 import numpy as np
 import random
+import os
 
 code_num = 10
 index_code = 'sh000300'
@@ -28,15 +29,17 @@ print('基金代码' + '\t' + 'Alpha的T值')
 for code in codes:
     df_i = ak.fund_em_open_fund_info(fund=code, indicator="单位净值走势").rename(columns={'x': 'date'})
     for index, row in df_i.iterrows():
-        df_i['date'][index] = str(df_i['date'][index])
+        df_i['净值日期'][index] = str(df_i['净值日期'][index])
         if index > 0:
-            df_i['equityReturn'][index] = (float(row['y']) - float(df_i['y'][index-1])) / float(df_i['y'][index-1])
-    df_i = df_i[['date', 'equityReturn']]
-    df = pd.merge(df_M, df_i, on='date')
-    y = df['equityReturn'].values - rf
+            df_i['日增长率'][index] = (float(row['单位净值']) - float(df_i['单位净值'][index-1])) / float(df_i['单位净值'][index-1])
+    df_i = df_i[['净值日期', '日增长率']]
+    df = pd.merge(df_M, df_i, how='inner', left_on='date', right_on='净值日期')
+    y = df['日增长率'].values - rf
     x = sm.add_constant(df['updown'].values - rf)
     df['Ri'] = y
     df['Rm'] = df['updown'].values - rf
     df.to_excel('./原始数据/' + code + '.xlsx')
     model = sm.OLS(endog=y, exog=x).fit()
     print(code + '\t' + str(model.tvalues[0]))
+
+os.system('pause')
