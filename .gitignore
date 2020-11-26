@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# 原始数据
+原始数据/
+
 # Distribution / packaging
 .Python
 build/
@@ -127,3 +130,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.idea/.gitignore
+.idea/JensenTValueCNFunds.iml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+"\345\216\237\345\247\213\346\225\260\346\215\256/"
