@@ -25,13 +25,17 @@ jobs:
         mkdir 原始数据
         python fund_crawl_Jensen.py > results.txt
         zip -r Results.zip 原始数据/ results.txt
+    - name: Current Time
+      id: current-time
+      uses: gerred/current-time@v1.0.0
     - name: Create a Release
       id: create_release
       uses: actions/create-release@v1.1.4
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TIME: "${{ steps.current-time.outputs.time }}"
       with:
-        tag_name: $( date +"%Y%m%d%H%M%S" )
+        tag_name: TIME
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
