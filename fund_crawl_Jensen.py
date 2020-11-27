@@ -1,5 +1,4 @@
 import statsmodels.api as sm
-from decimal import Decimal
 import akshare as ak
 import pandas as pd
 import numpy as np
