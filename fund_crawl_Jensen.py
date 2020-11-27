@@ -33,7 +33,11 @@ print('基金代码' + '\t' + 'Alpha的T值')
 i = 0
 while i < code_num and i < len(codes):
     code = codes[i]
-    df_i = ak.fund_em_open_fund_info(fund=code, indicator="单位净值走势").rename(columns={'x': 'date'})
+    try:
+        df_i = ak.fund_em_open_fund_info(fund=code, indicator="单位净值走势").rename(columns={'x': 'date'})
+    except:
+        time.sleep(10)
+        continue
     df_i = df_i[['净值日期', '日增长率']]
     if df_i['净值日期'].max().year - df_i['净值日期'].min().year < minYears:
         codes.pop(i)
