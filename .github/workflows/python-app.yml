@@ -30,7 +30,7 @@ jobs:
       uses: nanzm/get-time-action@v1.1
       with:
         timeZone: 8
-        format: "%Y%m%d%H%M%S"
+        format: "YYYYMMDDHHmmss"
     - name: Create a Release
       id: create_release
       uses: actions/create-release@v1.1.4
