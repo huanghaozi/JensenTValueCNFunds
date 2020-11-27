@@ -25,9 +25,12 @@ jobs:
         mkdir 原始数据
         python fund_crawl_Jensen.py > results.txt
         zip -r Results.zip 原始数据/ results.txt
-    - name: Current Time
+    - name: Get Timestamp Action
       id: current-time
-      uses: gerred/current-time@v1.0.0
+      uses: nanzm/get-time-action@v1.1
+      with:
+        timeZone: 8
+        format: "%Y%m%d%H%M%S"
     - name: Create a Release
       id: create_release
       uses: actions/create-release@v1.1.4
