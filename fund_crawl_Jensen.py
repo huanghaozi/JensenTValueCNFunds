@@ -6,7 +6,7 @@ import random
 import time
 import os
 
-code_num = 20
+code_num = 100
 minYears = 2  # 最小年份
 index_code = 'sh000300'  # 指数
 
