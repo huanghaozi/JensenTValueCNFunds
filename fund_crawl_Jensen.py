@@ -42,7 +42,7 @@ while i < code_num and i < len(codes):
     if df_i['净值日期'].max().year - df_i['净值日期'].min().year < minYears:
         codes.pop(i)
         continue
-    df_i['净值日期'] = df_i['净值日期'].apply(lambda date: time.strftime('%Y-%m-%d'))
+    df_i['净值日期'] = df_i['净值日期'].apply(lambda d: ddd.strftime('%Y-%m-%d'))
     df_i['日增长率'] /= 100
     df = pd.merge(df_M, df_i, how='inner', left_on='date', right_on='净值日期')
     y = df['日增长率'].apply(float).values - rf
