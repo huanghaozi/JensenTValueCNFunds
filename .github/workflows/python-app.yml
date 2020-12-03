@@ -2,8 +2,8 @@ name: Get All Data
 
 on:
   issues:
-    branches: 
-      - main
+    types:
+      [opened]
 
 jobs:
   build:
